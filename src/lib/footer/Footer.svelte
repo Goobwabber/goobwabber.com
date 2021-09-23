@@ -1,34 +1,36 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import logo from './tohru.png';
+    import kofilogo from './kofi.png';
+    import patreonlogo from './patreon.png';
 </script>
 
-<header>
+<footer>
 	<!-- <div class="corner">
 	</div> -->
 
 	<nav>
 		<ul>
-			<li class:active={$page.path === '/'}><a sveltekit:prefetch href="/"><img src={logo} alt="Tohru" /></a></li>
-			<li class:active={$page.path === '/projects'}><a sveltekit:prefetch href="/projects">Projects</a></li>
+            <li><p>Please donate!</p></li>
+            <li><a href="https://www.patreon.com/goobwabber"><img src={patreonlogo} alt="Patreon Logo" />Patreon</a></li>
+            <li><a href="https://ko-fi.com/goobwabber"><img style="width:4em;height:4em;padding-right:5px;" src={kofilogo} alt="Ko-fi Logo" />Ko-fi</a></li>
 		</ul>
 	</nav>
 
 	<!-- <div class="corner">
 	</div> -->
-</header>
+</footer>
 
 <style>
-	header {
-        position:sticky;
-        top: 0px;
+	footer {
+        position: sticky;
+        bottom: 0px;
         width: 100%;
 		display: flex;
 		justify-content: center;
         padding-top: 10px;
         background-image: linear-gradient(
-            180deg,
-            var(--secondary-color),
+            0deg,
+            var(--primary-color),
             transparent 
         );
 	}
@@ -58,14 +60,14 @@
 		justify-content: left;
         margin: 0px 15px 0px 15px;
         width: 90%;
-        border-bottom: 3px solid var(--primary-color4);
+        border-top: 3px solid var(--primary-color4);
 	}
 
     nav img {
-        width: 4em;
-		height: 4em;
+        width: 2.5em;
+		height: 2.5em;
 		object-fit: contain;
-        border-radius: 50%;
+        padding-right: 10px;
     }
 
 	ul {
@@ -99,6 +101,21 @@
 		text-decoration: none;
 		transition: color 0.1s linear;
 	}
+
+    nav p {
+        display: flex;
+		height: 100%;
+		align-items: center;
+		padding: 0 1em;
+		color: var(--heading-color);
+		font-weight: 700;
+		font-size: 0.8rem;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		text-decoration: none;
+		transition: color 0.1s linear;
+        margin: 0px;
+    }
 
 	a:hover {
 		color: var(--accent-color);

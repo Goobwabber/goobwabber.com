@@ -2,10 +2,6 @@
 	export const prerender = true;
 </script>
 
-<script lang="ts">
-	import Counter from '$lib/Counter.svelte';
-</script>
-
 <svelte:head>
 	<title>Home</title>
 </svelte:head>
@@ -13,20 +9,15 @@
 <section>
 	<h1>
 		<div class="welcome">
-			<picture>
-				<source srcset="svelte-welcome.webp" type="image/webp" />
-				<img src="svelte-welcome.png" alt="Welcome" />
-			</picture>
+			Hi!
 		</div>
-
-		to your new<br />SvelteKit app
 	</h1>
 
-	<h2>
-		try editing <strong>src/routes/index.svelte</strong>
+	<h2 style="text-align: center;">
+		I'm a Full-stack developer that mainly works on Beat Saber mods.
+        <br> I prefer working with backend, but all development is exciting.
+        <br> Check out my <strong><a href="https://github.com/goobwabber">Github</a></strong> to see some cool stuff I've made!
 	</h2>
-
-	<Counter />
 </section>
 
 <style>
@@ -46,14 +37,6 @@
 		position: relative;
 		width: 100%;
 		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
-	}
-
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
+		padding: 0 0 calc(15%) 0;
 	}
 </style>
