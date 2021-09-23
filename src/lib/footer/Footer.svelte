@@ -5,9 +5,6 @@
 </script>
 
 <footer>
-	<!-- <div class="corner">
-	</div> -->
-
 	<nav>
 		<ul>
             <li><p>Please donate!</p></li>
@@ -15,9 +12,6 @@
             <li><a href="https://ko-fi.com/goobwabber"><img style="width:4em;height:4em;padding-right:5px;" src={kofilogo} alt="Ko-fi Logo" />Ko-fi</a></li>
 		</ul>
 	</nav>
-
-	<!-- <div class="corner">
-	</div> -->
 </footer>
 
 <style>
@@ -33,26 +27,6 @@
             var(--primary-color),
             transparent 
         );
-	}
-
-	.corner {
-		width: 3.5em;
-		height: 3.5em;
-	}
-
-	.corner a {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 100%;
-		height: 100%;
-	}
-
-	.corner img {
-		width: 2.5em;
-		height: 2.5em;
-		object-fit: contain;
-        border-radius: 50%;
 	}
 
 	nav {

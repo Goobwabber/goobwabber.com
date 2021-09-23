@@ -4,18 +4,12 @@
 </script>
 
 <header>
-	<!-- <div class="corner">
-	</div> -->
-
 	<nav>
 		<ul>
 			<li class:active={$page.path === '/'}><a sveltekit:prefetch href="/"><img src={logo} alt="Tohru" /></a></li>
 			<li class:active={$page.path === '/projects'}><a sveltekit:prefetch href="/projects">Projects</a></li>
 		</ul>
 	</nav>
-
-	<!-- <div class="corner">
-	</div> -->
 </header>
 
 <style>
@@ -31,26 +25,6 @@
             var(--secondary-color),
             transparent 
         );
-	}
-
-	.corner {
-		width: 3.5em;
-		height: 3.5em;
-	}
-
-	.corner a {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 100%;
-		height: 100%;
-	}
-
-	.corner img {
-		width: 2.5em;
-		height: 2.5em;
-		object-fit: contain;
-        border-radius: 50%;
 	}
 
 	nav {
