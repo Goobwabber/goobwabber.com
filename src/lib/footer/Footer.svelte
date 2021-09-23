@@ -22,6 +22,7 @@
 		display: flex;
 		justify-content: center;
         backdrop-filter: blur(var(--glass-blur));
+        -webkit-backdrop-filter: blur(var(--glass-blur));
         background-image: linear-gradient(
             0deg,
             var(--primary-color),
