@@ -13,14 +13,18 @@
     --primary-color3: #bd264eb4;
     --primary-color4: #bd264e88;
     --primary-color5: #bd264e33;
+    --primary-transparent: #bd264e01;
 
 	--secondary-color: #f9d083;
+    --secondary-transparent: #f9d08301;
+
 	--accent-color: #bd264e;
 	--heading-color: #ffffffff;
 	--text-color: #444444;
 	--background-without-opacity: rgba(255, 255, 255, 0.7);
 	--column-width: 80%;
 	--column-margin-top: 4rem;
+    --glass-blur: 5px;
 }
 
 body {

@@ -21,11 +21,11 @@
         width: 100%;
 		display: flex;
 		justify-content: center;
-        padding-top: 10px;
+        backdrop-filter: blur(var(--glass-blur));
         background-image: linear-gradient(
             0deg,
             var(--primary-color),
-            transparent 
+            var(--primary-transparent)
         );
 	}
 

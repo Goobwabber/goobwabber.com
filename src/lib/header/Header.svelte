@@ -20,10 +20,11 @@
 		display: flex;
 		justify-content: center;
         padding-top: 10px;
+        backdrop-filter: blur(var(--glass-blur));
         background-image: linear-gradient(
             180deg,
             var(--secondary-color),
-            transparent 
+            var(--secondary-transparent)
         );
 	}
 
