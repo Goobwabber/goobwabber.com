@@ -1,1 +1,1 @@
-# goobwabber.com
+# [goobwabber.com](https://goobwabber.com)
