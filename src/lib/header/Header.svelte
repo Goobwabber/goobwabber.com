@@ -6,8 +6,8 @@
 <header>
 	<nav>
 		<ul>
-			<li class:active={$page.path === '/'}><a sveltekit:prefetch href="/"><img src={logo} alt="Tohru" /></a></li>
-			<li class:active={$page.path === '/projects'}><a sveltekit:prefetch href="/projects">Projects</a></li>
+			<li class:active={$page.url.pathname === '/'}><a sveltekit:prefetch href="/"><img src={logo} alt="Tohru" /></a></li>
+			<li class:active={$page.url.pathname === '/projects'}><a sveltekit:prefetch href="/projects">Projects</a></li>
 		</ul>
 	</nav>
 </header>
