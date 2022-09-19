@@ -5,28 +5,37 @@
 </script>
 
 <footer>
-	<nav>
-		<ul>
-            <li><p>Please donate!</p></li>
-            <li><a href="https://www.patreon.com/goobwabber"><img src={patreonlogo} alt="Patreon Logo" />Patreon</a></li>
-            <li><a href="https://ko-fi.com/goobwabber"><img style="width:4em;height:4em;padding-right:5px;" src={kofilogo} alt="Ko-fi Logo" />Ko-fi</a></li>
-		</ul>
-	</nav>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><p>Please donate!</p></li>
+                <li><a href="https://www.patreon.com/goobwabber"><img src={patreonlogo} alt="Patreon Logo" />Patreon</a></li>
+                <li><a href="https://ko-fi.com/goobwabber"><img style="width:4em;height:4em;padding-right:5px;" src={kofilogo} alt="Ko-fi Logo" />Ko-fi</a></li>
+            </ul>
+        </nav>
+    </div>
 </footer>
 
 <style>
+    .container {
+        width: 800px;
+    }
+
 	footer {
         position: fixed;
         bottom: 0px;
         width: 100%;
 		display: flex;
 		justify-content: center;
-        backdrop-filter: blur(var(--glass-blur));
-        -webkit-backdrop-filter: blur(var(--glass-blur));
         background-image: linear-gradient(
             0deg,
-            var(--primary-color),
-            var(--primary-transparent)
+            var(--dark-color),
+            var(--dark-color),
+            var(--dark-color),
+            var(--dark-color),
+            var(--dark-color),
+            var(--dark-color),
+            transparent
         );
 	}
 
@@ -35,7 +44,6 @@
 		justify-content: left;
         margin: 0px 15px 0px 15px;
         width: 90%;
-        border-top: 3px solid var(--primary-color4);
 	}
 
     nav img {

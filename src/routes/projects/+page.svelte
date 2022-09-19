@@ -1,79 +1,66 @@
+<script>
+    async function getRepos() {
+        let response = await fetch("https://api.github.com/users/goobwabber/repos");
+        let repos = await response.json();
+
+        if (!response.ok)
+            return null;
+
+        for (let i = 0; i < repos.length; i++) {
+            let releaseResponse = await fetch(repos[i].releases_url);
+            let releases = await releaseResponse.json(); 
+
+            let downloads = 0;
+            for (let x = 0; x < releases.length; x++) {
+                for (let y = 0; y < releases[x].assets.length; y++) {
+                    downloads += releases[x].assets[y].download_count;
+                }
+            }
+            repos[i].downloads = downloads;
+        }
+        
+        repos.sort((a, b) => {
+            var aVal = a.stargazers_count + a.watchers_count + a.forks + a.downloads;
+            var bVal = b.stargazers_count + b.watchers_count + b.forks + b.downloads;
+            return bVal - aVal;
+        });
+        return repos;
+    }
+    const promise = getRepos();
+</script>
+
 <svelte:head>
 	<title>Projects</title>
 </svelte:head>
 
 <div class="content">
-	<h1>Projects</h1>
-
 	<div class="flex">
-        <div class="container">
-            <div class="description">
-                <h2><strong>MultiplayerExtensions</strong></h2>
-                <h3>Core Beat Saber multiplayer mod.</h3>
+        {#await promise}
+            <p>Loading...</p>
+        {:then repos}
+        {#each repos as repo}
+        {#if repo.fork == false}
+            <div class="container">
+                <div class="description">
+                    <a href="{repo.html_url}"><h2><strong>{repo.name}</strong></h2></a>
+                    {#if repo.description != null}
+                    <h3>{repo.description}</h3>
+                    {/if}
+                </div>
+                <div class="links">
+                </div>
             </div>
-            <div class="links">
-                <a href="https://github.com/Goobwabber/MultiplayerExtensions">Github</a>
-            </div>
-        </div>
-        <div class="container">
-            <div class="description">
-                <h2><strong>BeatTogether</strong></h2>
-                <h3>Modded matchmaking servers and game servers for Beat Saber multiplayer.</h3>
-            </div>
-            <div class="links">
-                <a href="https://github.com/pythonology/BeatTogether.MasterServer">BeatTogether.MasterServer</a>
-                <br><a href="https://github.com/pythonology/BeatTogether.DedicatedServer">BeatTogether.DedicatedServer</a>
-            </div>
-        </div>
-        <div class="container">
-            <div class="description">
-                <h2><strong>BeatsaberOptimizer</strong></h2>
-                <h3>Optimizes Beat Saber game code to perform better.</h3>
-            </div>
-            <div class="links">
-                <a href="https://github.com/Goobwabber/BeatsaberOptimizer">Github</a>
-            </div>
-        </div>
-        <div class="container">
-            <div class="description">
-                <h2><strong>PauseCoob</strong></h2>
-                <h3>Allows you to pause Beat Saber by slicing a block rather than pressing a button.</h3>
-            </div>
-            <div class="links">
-                <a href="https://github.com/Goobwabber/PauseCoob">Github</a>
-            </div>
-        </div>
-        <div class="container">
-            <div class="description">
-                <h2><strong>MultiplayerAvatars</strong></h2>
-                <h3>Shows other player's custom avatars in Beat Saber multiplayer</h3>
-            </div>
-            <div class="links">
-                <a href="https://github.com/Goobwabber/MultiplayerAvatars">Github</a>
-            </div>
-        </div>
+        {/if}
+        {/each}
+        {:catch error}
+            <p style="color: red">{error.message}</p>
+        {/await}
     </div>
+    <br><br><br><br><br><br>
 </div>
 
 <style>
-	.content {
-		width: 100%;
-		max-width: 45em;
-		margin: var(--column-margin-top) auto 0 auto;
-	}
-
-    .flex {
-        flex-wrap: wrap;
-        display: flex;
-		justify-content: center;
-    }
-
     .container {
-        margin: 10px;
-        border: 3px solid var(--primary-color5);
-        border-radius: 5px;
-        padding: 10px;
-        display: flex;
         flex-direction: column;
         justify-content: space-between;
         flex-grow: 1;
@@ -92,6 +79,10 @@
         margin: 5px 0px 0px 0px;
     }
 
+    .container a h2:hover {
+        color: var(--accent-color);
+    }
+
     h3 {
         font-size: 0.9rem;
     }
@@ -99,5 +90,9 @@
     .container a {
         font-size: 0.8rem;
         color: white;
+    }
+
+    .container a:hover {
+        color: var(--accent-color);
     }
 </style>

@@ -4,13 +4,15 @@
 	import '../app.css';
 </script>
 
-<Header />
+<body>
+    <Header />
 
-<main>
-	<slot />
-</main>
+    <main>
+        <slot />
+    </main>
 
-<Footer />
+    <Footer />
+</body>
 
 <style>
 	main {

@@ -8,6 +8,8 @@
 	--pure-white: #ffffff;
     --pure-white2: #ffffffb3;
 
+    --dark-color: #222222;
+
 	--primary-color: #bd264e;
     --primary-color2: #bd264ee5;
     --primary-color3: #bd264eb4;
@@ -18,7 +20,7 @@
 	--secondary-color: #f9d083;
     --secondary-transparent: #f9d08301;
 
-	--accent-color: #bd264e;
+	--accent-color: var(--primary-color);
 	--heading-color: #ffffffff;
 	--text-color: #444444;
 	--background-without-opacity: rgba(255, 255, 255, 0.7);
@@ -30,12 +32,12 @@
 body {
 	min-height: 100vh;
 	margin: 0;
-	background-color: var(--primary-color);
-	background: linear-gradient(
+	background-color: var(--dark-color);
+	/*background: linear-gradient(
 		315deg,
 		var(--primary-color),
 		var(--secondary-color)
-	);
+	);*/
     background-attachment: fixed;
 }
 
@@ -101,6 +103,34 @@ button {
 
 button:focus:not(:focus-visible) {
 	outline: none;
+}
+
+.content {
+    width: 100%;
+    max-width: 45em;
+    margin: var(--column-margin-top) auto 0 auto;
+}
+
+.flex {
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.container {
+    margin: 10px;
+    padding: 10px;
+    background-color: var(--primary-color);
+    background: linear-gradient(
+        315deg,
+        var(--primary-color),
+        var(--secondary-color)
+    );
+    background-attachment: fixed;
+    display: flex;
+    border: 0px solid var(--primary-color5);
+    border-radius: 10px;
 }
 
 @media (min-width: 720px) {
