@@ -6,7 +6,7 @@
         if (!response.ok)
             return null;
 
-        for (let i = 0; i < repos.length; i++) {
+        /*for (let i = 0; i < repos.length; i++) {
             let releaseResponse = await fetch(repos[i].releases_url);
             let releases = await releaseResponse.json(); 
 
@@ -17,13 +17,16 @@
                 }
             }
             repos[i].downloads = downloads;
-        }
+        }*/
         
         repos.sort((a, b) => {
-            var aVal = a.stargazers_count + a.watchers_count + a.forks + a.downloads;
-            var bVal = b.stargazers_count + b.watchers_count + b.forks + b.downloads;
+            var aVal = a.stargazers_count + a.watchers_count + a.forks;
+            var bVal = b.stargazers_count + b.watchers_count + b.forks;
             return bVal - aVal;
         });
+
+        console.log(repos);
+
         return repos;
     }
     const promise = getRepos();
