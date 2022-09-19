@@ -50,8 +50,8 @@
         }
         
         repos.sort((a, b) => {
-            var aVal = a.stargazers_count + a.watchers_count + a.forks + a.commit_count;
-            var bVal = b.stargazers_count + b.watchers_count + b.forks + b.commit_count;
+            var aVal = a.stargazers_count + a.watchers_count + a.forks;
+            var bVal = b.stargazers_count + b.watchers_count + b.forks;
             return bVal - aVal;
         });
 
