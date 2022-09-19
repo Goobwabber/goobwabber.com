@@ -56,7 +56,6 @@
             <p style="color: red">{error.message}</p>
         {/await}
     </div>
-    <br><br><br><br><br><br>
 </div>
 
 <style>
