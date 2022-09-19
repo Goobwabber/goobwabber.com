@@ -6,6 +6,16 @@ declare namespace App {
 		userid: string;
 	}
 
+    interface Platform {
+        env: {
+            COUNTER: DurableObjectNamespace;
+        };
+        context: {
+            waitUntil(promise: Promise<any>): void;
+        };
+        caches: CacheStorage & { default: Cache }
+    }
+
 	// interface PageData {}
 
 	// interface PageError {}
