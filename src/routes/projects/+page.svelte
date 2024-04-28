@@ -9,9 +9,9 @@
             return null;
         
         repos.sort((a, b) => {
-            // get how many years have passed from when it was last pushed to 2018, then multiply by value weight to push repos with recent activity to the top.
-            var aActivity = (Date.parse(a.pushed_at) / 31536000000 - 48) * 3;
-            var bActivity = (Date.parse(b.pushed_at) / 31536000000 - 48) * 3;
+            // get how many years have passed from when it was last pushed to 2019, then multiply by value weight to push repos with recent activity to the top.
+            var aActivity = (Date.parse(a.pushed_at) / 31536000000 - 49) * 20;
+            var bActivity = (Date.parse(b.pushed_at) / 31536000000 - 49) * 20;
             var aVal = a.stargazers_count + a.watchers_count + a.forks + aActivity;
             var bVal = b.stargazers_count + b.watchers_count + b.forks + bActivity;
             return bVal - aVal;
@@ -26,7 +26,7 @@
 	<title>Projects</title>
 </svelte:head>
 
-<div class="content">
+<div class="content" style="margin-top:0px">
 	<div class="flex">
         {#await promise}
             <p>Loading...</p>
@@ -49,6 +49,7 @@
                     <p class="inline"><strong>{repo.forks}</strong></p>
                     <!--<svg class="inline" width="17" height="17" viewBox="0 0 512 512"><path d="M448,224H380a128,128,0,0,0-247.9,0H64a32,32,0,0,0,0,64h68.05A128,128,0,0,0,380,288H448a32,32,0,0,0,0-64ZM256,320a64,64,0,1,1,64-64A64.07,64.07,0,0,1,256,320Z"/></svg>
                     <p class="inline"><strong>{repo.commit_count}</strong></p>-->
+                    <p class="inline" style="float:right; margin:1px 18px 0px 0px; font-size:14px;">Updated: <strong>{repo.pushed_at.slice(0, 7)}</strong></p>
                 </div>
             </div>
         {/if}
