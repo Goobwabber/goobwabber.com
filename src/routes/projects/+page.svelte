@@ -9,8 +9,11 @@
             return null;
         
         repos.sort((a, b) => {
-            var aVal = a.stargazers_count + a.watchers_count + a.forks;
-            var bVal = b.stargazers_count + b.watchers_count + b.forks;
+            // get how many years have passed from when it was last pushed to 2018, then multiply by value weight to push repos with recent activity to the top.
+            var aActivity = (Date.parse(a.pushed_at) / 31536000000 - 48) * 3;
+            var bActivity = (Date.parse(b.pushed_at) / 31536000000 - 48) * 3;
+            var aVal = a.stargazers_count + a.watchers_count + a.forks + aActivity;
+            var bVal = b.stargazers_count + b.watchers_count + b.forks + bActivity;
             return bVal - aVal;
         });
 
